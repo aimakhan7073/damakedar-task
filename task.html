@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saylani Student Card</title>
+
+    <style>
+
+        /* =========================
+
+           Basic Reset
+
+        ========================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+
+                radial-gradient(circle at top left, #c593aa, transparent 30%),
+
+                radial-gradient(circle at bottom right, #507f92, transparent 30%),
+
+                linear-gradient(135deg, #fff7fb, #f3faff);
+
+
+
+
+
+
+        }
+
+        /* =========================
+
+           Main Card
+
+        ========================== */
+
+        .student-card {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            padding: 28px;
+
+            position: relative;
+
+
+            overflow: hidden;
+
+            text-align: center;
+
+            background: rgba(171, 153, 153, 0.92);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            border-radius: 35px;
+
+            box-shadow:
+
+                0 18px 40px rgba(48, 17, 73, 0.18),
+
+                0 5px 15px rgba(0, 0, 0, 0.08);
+
+            backdrop-filter: blur(12px);
+
+            transition: 0.4s ease;
+
+        }
+
+        .student-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+
+                0 28px 60px rgba(122, 84, 154, 0.25),
+
+                0 8px 20px rgba(0, 0, 0, 0.1);
+
+        }
+
+        /* Decorative circles */
+
+        .student-card::before,
+
+        .student-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            z-index: 0;
+
+        }
+
+        .student-card::before {
+
+            width: 140px;
+
+            height: 140px;
+
+            top: -70px;
+
+            right: -60px;
+
+            background: linear-gradient(135deg, #ff9ec8, #ffd1e3);
+
+        }
+
+        .student-card::after {
+
+            width: 100px;
+
+            height: 100px;
+
+            bottom: -40px;
+
+            left: -33px;
+
+            background: linear-gradient(135deg, #74d7ff, #d2f3ff);
+
+        }
+
+        .card-content {
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+        /* =========================
+
+           Welcome Badge
+
+        ========================== */
+
+        .welcome-badge {
+
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            padding: 8px 18px;
+
+            color: #b44178;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 0.5px;
+
+            background: #ffe4f0;
+
+            border: 1px solid #ffc4dc;
+
+            border-radius: 40px;
+
+            box-shadow: 0 5px 15px rgba(255, 105, 165, 0.15);
+
+        }
+
+        /* =========================
+
+           Saylani Box
+
+        ========================== */
+
+        .saylani-box {
+
+            padding: 28px 20px;
+
+            margin-bottom: 21px;
+
+            background: linear-gradient(135deg, #f4fcff, #ffffff);
+
+            border: 2px solid #52bce5;
+
+            border-radius: 21px;
+
+            box-shadow:
+
+                0 10px 25px rgba(0, 170, 220, 0.15),
+
+                inset 0 0 20px rgba(82, 188, 229, 0.06);
+
+            transition: 0.35s ease;
+
+        }
+
+        .saylani-box:hover {
+
+            transform: scale(1.025);
+
+            border-color: #2399c8;
+
+            box-shadow:
+
+                0 15px 30px rgba(0, 170, 220, 0.22),
+
+                inset 0 0 25px rgba(82, 188, 229, 0.1);
+
+        }
+
+        .saylani-text {
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(40px, 10vw, 62px);
+
+            color: #252525;
+
+            line-height: 1;
+
+            text-shadow:
+
+                2px 3px 0 #d8f4ff,
+
+                4px 5px 10px rgba(0, 0, 0, 0.18);
+
+        }
+
+        .tagline {
+
+            margin-top: 10px;
+
+            color: #73a45c;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+        /* =========================
+
+           Profile Box
+
+        ========================== */
+
+        .profile-box {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            padding: 18px;
+
+            margin-bottom: 18px;
+
+            text-align: left;
+
+            background: linear-gradient(135deg, #fff0f7, #fff9fc);
+
+            border: 1px solid #ffc5df;
+
+            border-radius: 21px;
+
+            box-shadow: 0 10px 25px rgba(210, 91, 145, 0.14);
+
+            transition: 0.35s ease;
+
+        }
+
+        .profile-box:hover {
+
+            transform: translateX(5px);
+
+            box-shadow: 0 14px 30px rgba(210, 91, 145, 0.22);
+
+        }
+
+        /* Avatar */
+
+        .avatar {
+
+            min-width: 69px;
+
+            height: 69px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: white;
+
+            font-family: Georgia, serif;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            background: linear-gradient(135deg, #ff7eb6, #a46cf3);
+
+            border: 4px solid white;
+
+            border-radius: 50%;
+
+            box-shadow:
+
+                0 8px 18px rgba(164, 108, 243, 0.3),
+
+                0 0 0 2px #ffd2e6;
+
+        }
+
+        .profile-details h2 {
+
+            margin-bottom: 5px;
+
+            color: #4f345e;
+
+            font-size: 24px;
+
+        }
+
+        .profile-details p {
+
+            color: #8a668e;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+        /* =========================
+
+           Information Boxes
+
+        ========================== */
+
+        .information-area {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .info-box {
+
+            padding: 15px 10px;
+
+            background: white;
+
+            border: 1px solid #ece5f1;
+
+            border-radius: 16px;
+
+            box-shadow: 0 6px 16px rgba(75, 55, 90, 0.08);
+
+            transition: 0.3s ease;
+
+        }
+
+        .info-box:hover {
+
+            transform: translateY(-4px);
+
+            border-color: #d5b4ec;
+
+            box-shadow: 0 10px 22px rgba(75, 55, 90, 0.13);
+
+        }
+
+        .info-icon {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 24px;
+
+        }
+
+        .info-title {
+
+            display: block;
+
+            margin-bottom: 3px;
+
+            color: #9b79a5;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.8px;
+
+        }
+
+        .info-value {
+
+            color: #4c3a52;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+        /* =========================
+
+           Bottom Message
+
+        ========================== */
+
+        .message-box {
+
+            padding: 12px 16px;
+
+            color: #604c67;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            background: linear-gradient(135deg, #fff9df, #fffdf3);
+
+            border: 1px dashed #b29e65;
+
+            border-radius: 14px;
+
+        }
+
+        .heart {
+
+            color: #ef5b8d;
+
+        }
+
+        /* =========================
+
+           Responsive Design
+
+        ========================== */
+
+        @media (max-width: 500px) {
+
+            body {
+
+                padding: 13px;
+
+            }
+
+            .student-card {
+
+                padding: 18px;
+
+                border-radius: 21px;
+
+            }
+
+            .profile-box {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+            .information-area {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .saylani-box {
+
+                padding: 20px 12px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="student-card">
+
+        <div class="card-content">
+
+            <!-- Welcome Box -->
+
+            <div class="welcome-badge">
+
+                ✨ Welcome to Saylani
+
+            </div>
+
+            <!-- Separate Saylani Box -->
+
+            <section class="saylani-box">
+
+                <h1 class="saylani-text">Saylani</h1>
+
+                <p class="tagline">Education • Skills • Success</p>
+
+            </section>
+
+            <!-- Separate Profile Box -->
+
+            <section class="profile-box">
+
+                <div class="avatar">AK</div>
+
+                <div class="profile-details">
+
+                    <h2>Aima  Khan</h2>
+
+                    <p>
+                    My dream is to become a successful and independent woman.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- Separate Information Boxes -->
+
+            <section class="information-area">
+
+                <div class="info-box">
+
+                    <span class="info-icon">👩‍🎓</span>
+
+                    <span class="info-title">Student</span>
+
+                    <span class="info-value">Aima Khan</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <span class="info-icon">💻</span>
+
+                    <span class="info-title">Course</span>
+
+                    <span class="info-value">Web Development</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <span class="info-icon">📍</span>
+
+                    <span class="info-title">Campus</span>
+
+                    <span class="info-value">Peshawar</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <span class="info-icon">⭐</span>
+
+                    <span class="info-title">Status</span>
+
+                    <span class="info-value">Active Student</span>
+
+                </div>
+
+            </section>
+
+            <!-- Bottom Message Box -->
+
+            <div class="message-box">
+
+                Keep learning, keep growing, and always believe in yourself
+
+                <span class="heart">♥️</span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
+</head>
+<body>
+
+</body>
+</html>
